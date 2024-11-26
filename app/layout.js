@@ -1,30 +1,22 @@
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-})
+// alias
+import Navbar from '@/components/Navbar'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Next JS',
-  description: 'this is next-js app',
+  title: 'Next.js Tutorial',
+  description: 'Build awesome stuff with Next.js!',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <nav className='text-7xl'>NAVBAR</nav>
-        {children}
+    <html lang='en' className='bg-base-200'>
+      <body className={inter.className}>
+        <Navbar />
+        <main className='px-8 py-20 max-w-6xl mx-auto '>{children}</main>
       </body>
     </html>
   )
